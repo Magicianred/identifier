@@ -35,9 +35,9 @@
 </div>
 
 <h2><a id="user-content--project" class="anchor" aria-hidden="true" href="#-project"></a> PROJECT</h2>
-<span> Identifier is a backend application that has CRUD for users. </a> <span><br/>
-<span> Its purpose is to read, create, update, delete user accounts in mongoDB and return a token and the user name when executing signin. <span><br/>
-<span> This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p><br/>
+<span>  Identifier is a backend application that has CRUD for users. </a> <span><br/>
+<span>  Its purpose is to read, create, update, delete user accounts in mongoDB and return a token and the user name when executing signin. <span><br/>
+<span>  This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p><br/>
 
 <h2><a id="user-content--requirements" class="anchor" aria-hidden="true" href="#-requirements"></a> REQUIREMENTS</h2>
 <p> MongoDB </p><br/><br/>
@@ -70,7 +70,6 @@
 <p>http://localhost:7777/graphql</p>
 
 ```javascript
-// Create and View Code
 mutation {
   signUp (email: "jack@mail.com", password: "jack", passwordConfirmation: "jack") {
     code
