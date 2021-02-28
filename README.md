@@ -1,4 +1,4 @@
-<h1 align="center" color"red">DDD-CLEAN-CRUD</h1>
+<h1 align="center" color"red">IDENTIFIER</h1>
 
 <p align="center">
   <a href="#-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -35,9 +35,9 @@
 </div>
 
 <h2><a id="user-content--project" class="anchor" aria-hidden="true" href="#-project"></a> PROJECT</h2>
-<span> This application was created after studying the Clean Architecture course by <a href="https://rmanguinho.github.io/">Rodrigo Manguinho.</a> <span><br/>
-<span> Its purpose is to read, create, update, delete user accounts in mongoDB and return a token and the user name when executing signin and signup. <span><br/>
-<span> This structure was created only to help those who are starting with studies in domain driven design and clean architecture. </p><br/>
+<span> Identifier is a backend application that has CRUD for users. </a> <span><br/>
+<span> Its purpose is to read, create, update, delete user accounts in mongoDB and return a token and the user name when executing signin. <span><br/>
+<span> This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p><br/>
 
 <h2><a id="user-content--requirements" class="anchor" aria-hidden="true" href="#-requirements"></a> REQUIREMENTS</h2>
 <p> MongoDB </p><br/><br/>
@@ -48,9 +48,9 @@
 <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a><br/><br/>
 
 <h4> Clone the repository to the desired folder. </h4>
-<p> git clone https://github.com/th14g0d3v/ddd-clean-crud.git </p><br/>
+<p> git clone https://github.com/th14g0d3v/identifier.git </p><br/>
 <h4> Navigate to the repository folder. </h4>
-<p> cd clean-ts-api-code </p><br/>
+<p> cd identifier </p><br/>
 
 <h4> Install the necessary packages for the project. </h4>
 <p> npm install or yarn </p><br/>
@@ -72,7 +72,7 @@
 ```javascript
 // Create and View Code
 mutation {
-  code (code: "01ff") {
+  signUp (email: "jack@mail.com", password: "jack", passwordConfirmation: "jack") {
     code
   }
 }
@@ -82,11 +82,11 @@ mutation {
 
 <h2><a id="user-content--challenge" class="anchor" aria-hidden="true" href="#-challenge"></a> CHALLENGE</h2>
 
-- [x] Create and view a single code
+- [x] Create an account.
       <br/><br/>
 
 <h2><a id="user-content-memo-licença" class="anchor" aria-hidden="true" href="#memo-licença"></a> LICENSE</h2>
-<p>This project is under the MIT license. See the <a href="https://github.com/th14g0d3v/clean-ts-api-code/blob/master/LICENSE"> LICENSE</a> file for more details.</p><br/>
+<p>This project is under the MIT license. See the <a href="https://github.com/th14g0d3v/identifier/blob/master/LICENSE"> LICENSE</a> file for more details.</p><br/>
 
 <h2><a id="user-content-memo-credits" class="anchor" aria-hidden="true" href="#memo-credits"></a> CREDITS</h2>
 <p>Made by <a href="https://github.com/th14g0d3v" rel="nofollow"> Thiago Gomes</a>.</p>
