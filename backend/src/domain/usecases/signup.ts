@@ -1,4 +1,4 @@
-import { AccountModel } from '@/domain/entity'
+import { AccountModel } from '@/domain/entities'
 
 export interface SignUpAccount {
   signup: (account: SignUpAccount.Data) => Promise<SignUpAccount.Result>
