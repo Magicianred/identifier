@@ -1,3 +1,3 @@
 export interface HashVerify {
-  verify: (plaitext: string, digest: string) => Promise<boolean>
+  verify: (hash: string, plaintext: string) => Promise<boolean>
 }
