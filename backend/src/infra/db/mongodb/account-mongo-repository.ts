@@ -1,7 +1,7 @@
 import { MongoHelper } from '@/infra/db'
-import { SignUpAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository } from '@/data/protocols/db'
+import { SignUpAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository } from '@/data/protocols/db'
 
-export class AccountMongoRepository implements SignUpAccountRepository, LoadAccountByEmailRepository, CheckAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository {
+export class AccountMongoRepository implements SignUpAccountRepository, LoadAccountByEmailRepository, CheckAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository {
   async signupAccount(data: SignUpAccountRepository.Data): Promise<SignUpAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(data)
@@ -49,20 +49,23 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     return account !== null
   }
 
-  // async updateByEmail(data: UpdateAccountRepository.Params): Promise<UpdateAccountRepository.Result> {
-  //   const accountCollection = await MongoHelper.getCollection('accounts')
-  //   const account = await accountCollection.findOneAndUpdate({
-  //     email: data.email
-  //   }, {
-  //     $set: {
-  //       name: data.name,
-  //       email: data.email,
-  //       password: data.password
-  //     }
-  //   }, {
-  //     upsert: true
-  //   }
-  //   )
-  //   return account !== null
-  // }
+  async updateByEmail(data: UpdateAccountRepository.Params): Promise<UpdateAccountRepository.Result> {
+    const accountCollection = await MongoHelper.getCollection('accounts')
+    const account = await accountCollection.findOneAndUpdate({
+      email: data.currentEmail
+    }, {
+      $push: {
+        email: data.newEmail,
+        password: data.newPassword
+      }
+    }, { new: true })  
+    // return account !== null
+    return account.ops[0]
+  } 
+
+  async all(): Promise<AllAccountRepository.Result> {
+    const accountCollection = await MongoHelper.getCollection('accounts')
+    const account = await accountCollection.find()
+    return account.ops[0]
+  } 
 }

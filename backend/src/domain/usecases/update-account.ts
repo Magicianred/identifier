@@ -5,6 +5,10 @@ export interface UpdateAccount {
 }
 
 export namespace UpdateAccount {
-  export type Params = AccountModel
+  export type Params = {
+    currentEmail: string
+    newEmail: string
+    newPassword: string
+  }
   export type Result = boolean
 }

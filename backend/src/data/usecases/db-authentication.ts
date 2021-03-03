@@ -6,6 +6,7 @@ export class DbAuthentication implements Authentication {
     private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository,
     private readonly hashVerify: HashVerify,
     private readonly encrypter: Encrypter,
+    private readonly updateAccessTokenRepository: UpdateAccessTokenRepository,
   ) {}
 
   async auth (authenticationParams: Authentication.Params): Promise<Authentication.Result> {
@@ -13,7 +14,8 @@ export class DbAuthentication implements Authentication {
     if (account) {
       const isValid = await this.hashVerify.verify(authenticationParams.password, account.password)
       if (isValid) {
-        const accessToken = await this.encrypter.encrypt(account.email)
+        const accessToken = await this.encrypter.encrypt(account.id)
+        await this.updateAccessTokenRepository.updateAccessToken(account.id, accessToken)
         return {
           accessToken,
           email: account.email

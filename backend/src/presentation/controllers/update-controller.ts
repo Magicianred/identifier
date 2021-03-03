@@ -10,10 +10,11 @@ export class UpdateController implements Controller {
 
   async handle(request: UpdateController.Request): Promise<HttpResponse> {
     try {
-      const { email, password } = request
+      const { currentEmail, newEmail, newPassword } = request
       const isValid = await this.updateAccount.update({
-        email,
-        password
+        currentEmail,
+        newEmail,
+        newPassword
       })
       if (!isValid) {
         return forbidden(new EmailInUseError())
@@ -27,8 +28,8 @@ export class UpdateController implements Controller {
 
 export namespace UpdateController {
   export type Request = {
-    name: string
-    email: string
-    password: string
+    currentEmail: string
+    newEmail: string
+    newPassword: string
   }
 }
