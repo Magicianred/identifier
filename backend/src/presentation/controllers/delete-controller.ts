@@ -11,13 +11,12 @@ export class DeleteController implements Controller {
   async handle(request: DeleteController.Request): Promise<HttpResponse> {
     try {
       const { email } = request
-      const isValid = await this.deleteAccount.delete({
-        email
-      })
-      if (!isValid) {
-        return forbidden(new EmailInUseError())
+      if (email) {
+        await this.deleteAccount.delete({
+          email
+        })
       }
-      return ok(isValid)
+      return ok(email)
     } catch (error) {
       return serverError(error)
     }

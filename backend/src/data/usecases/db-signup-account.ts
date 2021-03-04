@@ -9,11 +9,11 @@ export class DbSignUpAccount implements SignUpAccount {
   ) { }
 
   async signup(account: SignUpAccount.Data): Promise<SignUpAccount.Result> {
-    const exist = await this.checkAccountByEmailRepository.checkByEmail(account.email)
+    const exists = await this.checkAccountByEmailRepository.checkByEmail(account.email)
     let isValid
-    if (!exist) {
+    if (!exists) {
       const hashedPassword = await this.hasher.hash(account.password)
-      isValid = await this.signUpAccountRepository.signupAccount({ ...account, password: hashedPassword })
+      isValid = await this.signUpAccountRepository.signupAccount({ email: account.email, password: hashedPassword })
     }
     return isValid
   }

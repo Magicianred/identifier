@@ -9,7 +9,7 @@ export default gql`
 
   extend type Mutation {
     signUp (email: String!, password: String!, passwordConfirmation: String!): Email!
-    delete (email: String!): Result
+    delete (email: String!): Result,
     update (currentEmail: String!, newEmail: String!, newPassword: String!): Email!
   }
 
@@ -28,6 +28,6 @@ export default gql`
   }
 
   type Result {
-    result: Boolean
+    result: String
   }
 `

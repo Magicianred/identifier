@@ -7,12 +7,10 @@ export class DbDeleteAccount implements DeleteAccount {
     private readonly checkAccountByEmailRepository: CheckAccountByEmailRepository
   ) { }
 
-  async delete(accountData: DeleteAccount.Params): Promise<DeleteAccount.Result> {
+  async delete(accountData: DeleteAccount.Params): Promise<void> {
     const exists = await this.checkAccountByEmailRepository.checkByEmail(accountData.email)
-    let isValid = false
     if (exists) {
-      isValid = await this.deleteAccountRepository.deleteByEmail(accountData)
+      await this.deleteAccountRepository.deleteByEmail(accountData)
     }
-    return isValid
   }
 }
