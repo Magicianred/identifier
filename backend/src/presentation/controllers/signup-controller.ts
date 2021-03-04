@@ -1,6 +1,6 @@
 import { Controller, HttpResponse } from '@/presentation/protocols'
 import { serverError, ok, forbidden } from '@/presentation/helpers'
-import { EmailInUseError } from '@/presentation/errors'
+import { EmailInUseError, InvalidParamError } from '@/presentation/errors'
 import { SignUpAccount } from '@/domain/usecases'
 
 export class SignUpController implements Controller {
@@ -10,7 +10,10 @@ export class SignUpController implements Controller {
 
   async handle(request: SignUpController.Request): Promise<HttpResponse> {
     try {
-      const { email, password } = request
+      const { email, password, passwordConfirmation } = request
+      if (password !== passwordConfirmation) {
+        return forbidden(new InvalidParamError(password || passwordConfirmation))
+      }
       const isValid = await this.signUpAccount.signup({
         email,
         password

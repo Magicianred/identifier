@@ -6,5 +6,7 @@ export interface UpdateAccountRepository {
 
 export namespace UpdateAccountRepository {
   export type Params = UpdateAccount.Params
-  export type Result = boolean
+  export type Result = {
+    newEmail: string
+  }
 }

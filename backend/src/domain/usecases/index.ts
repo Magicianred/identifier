@@ -1,5 +1,5 @@
-export * from './signup'
-export * from './authentication'
+export * from './signup-account'
+export * from './authentication-account'
 export * from './delete-account'
 export * from './update-account'
 export * from './all-accounts'

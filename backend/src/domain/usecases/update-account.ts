@@ -1,5 +1,3 @@
-import { AccountModel } from "@/domain/entities"
-
 export interface UpdateAccount {
   update: (updateAccount: UpdateAccount.Params) => Promise<UpdateAccount.Result>
 }
@@ -10,5 +8,7 @@ export namespace UpdateAccount {
     newEmail: string
     newPassword: string
   }
-  export type Result = boolean
+  export type Result = {
+    newEmail: string
+  }
 }

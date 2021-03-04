@@ -9,7 +9,7 @@ export class DbUpdateAccount implements UpdateAccount {
 
   async update(updateAccount: UpdateAccount.Params): Promise<UpdateAccount.Result> {
     const exists = await this.checkAccountByEmailRepository.checkByEmail(updateAccount.currentEmail)
-    let isValid = false
+    let isValid
     if (exists) {
       isValid = await this.updateAccountRepository.updateByEmail({
         currentEmail: updateAccount.currentEmail,

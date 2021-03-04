@@ -6,5 +6,5 @@ export interface SignUpAccount {
 
 export namespace SignUpAccount {
   export type Data = AccountModel
-  export type Result = boolean
+  export type Result = Pick<AccountModel, "email">
 }

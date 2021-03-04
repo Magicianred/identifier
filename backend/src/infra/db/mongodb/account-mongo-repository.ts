@@ -5,7 +5,6 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
   async signupAccount(data: SignUpAccountRepository.Data): Promise<SignUpAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(data)
-    // return result.ops[0] !== null
     return result.ops[0]
   }
 
@@ -51,15 +50,14 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
 
   async updateByEmail(data: UpdateAccountRepository.Params): Promise<UpdateAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
-    const account = await accountCollection.findOneAndUpdate({
+    const account = await accountCollection.updateOne({
       email: data.currentEmail
     }, {
-      $push: {
+      $set: {
         email: data.newEmail,
         password: data.newPassword
       }
-    }, { new: true })  
-    // return account !== null
+    })  
     return account.ops[0]
   } 
 
