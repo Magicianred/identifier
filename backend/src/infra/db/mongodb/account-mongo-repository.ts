@@ -1,7 +1,7 @@
 import { MongoHelper } from '@/infra/db'
-import { SignUpAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository, LoadAccountRepository } from '@/data/protocols/db'
+import { SignUpAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository, LoadAccountRepository, LoadAccountByTokenRepository } from '@/data/protocols/db'
 
-export class AccountMongoRepository implements SignUpAccountRepository, LoadAccountByEmailRepository, CheckAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository, LoadAccountRepository {
+export class AccountMongoRepository implements SignUpAccountRepository, LoadAccountByEmailRepository, CheckAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository, LoadAccountRepository, LoadAccountByTokenRepository {
   async signupAccount(data: SignUpAccountRepository.Data): Promise<SignUpAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(data)
@@ -88,17 +88,26 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     const accountCollection = await MongoHelper.getCollection('accounts')
     const account = await accountCollection.findOne({
       email
-    }
-      // , {
-      //   projection: {
-      //   id: 1,
-      //   email: 1,
-      //   password: 1
-      // }
-      // }
-    )
+    })
     // console.log("account: ", account)
-    console.log("MongoHelper.map(account): ", MongoHelper.map(account))
+    // console.log("MongoHelper.map(account): ", MongoHelper.map(account))
+    return account && MongoHelper.map(account)
+  }
+
+  async loadByToken(token: string, role?: string): Promise<LoadAccountByTokenRepository.Result> {
+    const accountCollection = await MongoHelper.getCollection('accounts')
+    const account = await accountCollection.findOne({
+      accessToken: token,
+      $or: [{
+        role
+      }, {
+        role: 'admin'
+      }]
+    }, {
+      projection: {
+        email: 1
+      }
+    })
     return account && MongoHelper.map(account)
   }
 }

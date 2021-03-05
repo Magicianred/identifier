@@ -10,10 +10,6 @@ export class LoadController implements Controller {
     try {
       const account = await this.loadAccount.load(request.email)
       return account ? ok(account) : noContent()
-      // if (!account) {
-      //   return noContent()
-      // }
-      // return ok(account)
     } catch (error) {
       return serverError(error)
     }

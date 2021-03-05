@@ -4,13 +4,13 @@ import { makeLoginController, makeSignUpController, makeDeleteController, makeUp
 export default {
   Query: {
     login: async (parent: any, args: any) => adaptResolver(makeLoginController(), args),
-    load: async (parent: any, args: any) => adaptResolver(makeLoadController(), args),
-    all: async (parent: any, args: any) => adaptResolver(makeAllController(), args)
+    load: async (parent: any, args: any, context: any) => adaptResolver(makeLoadController(), args, context),
+    all: async (parent: any, args: any, context: any) => adaptResolver(makeAllController(), args, context)
   },
 
   Mutation: {
     signUp: async (parent: any, args: any) => adaptResolver(makeSignUpController(), args),
-    delete: async (parent: any, args: any) => adaptResolver(makeDeleteController(), args),
-    update: async (parent: any, args: any) => adaptResolver(makeUpdateController(), args)
+    delete: async (parent: any, args: any, context: any) => adaptResolver(makeDeleteController(), args, context),
+    update: async (parent: any, args: any, context: any) => adaptResolver(makeUpdateController(), args, context)
   }
 }
