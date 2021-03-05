@@ -5,5 +5,5 @@ export interface AllAccount {
 }
 
 export namespace AllAccount {
-  export type Result = [AccountModel]
+  export type Result = AccountModel[]
 }

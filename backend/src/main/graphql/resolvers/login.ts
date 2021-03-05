@@ -1,9 +1,10 @@
 import { adaptResolver } from '@/main/adapters'
-import { makeLoginController, makeSignUpController, makeDeleteController, makeUpdateController, makeAllController } from '@/main/factories'
+import { makeLoginController, makeSignUpController, makeDeleteController, makeUpdateController, makeAllController, makeLoadController } from '@/main/factories'
 
 export default {
   Query: {
     login: async (parent: any, args: any) => adaptResolver(makeLoginController(), args),
+    load: async (parent: any, args: any) => adaptResolver(makeLoadController(), args),
     all: async (parent: any, args: any) => adaptResolver(makeAllController(), args)
   },
 

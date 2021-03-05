@@ -1,10 +1,9 @@
+import { AccountModel } from "@/domain";
+
 export interface AllAccountRepository {
-  all: () => Promise<AllAccountRepository.Result>
+  loadAll: () => Promise<AllAccountRepository.Result>
 }
 
 export namespace AllAccountRepository {
-  export type Result = [{
-    email: string
-    password: string
-  }]
+  export type Result = AccountModel[]
 }

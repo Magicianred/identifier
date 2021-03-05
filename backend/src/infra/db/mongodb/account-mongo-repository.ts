@@ -1,7 +1,7 @@
 import { MongoHelper } from '@/infra/db'
-import { SignUpAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository } from '@/data/protocols/db'
+import { SignUpAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository, LoadAccountRepository } from '@/data/protocols/db'
 
-export class AccountMongoRepository implements SignUpAccountRepository, LoadAccountByEmailRepository, CheckAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository {
+export class AccountMongoRepository implements SignUpAccountRepository, LoadAccountByEmailRepository, CheckAccountByEmailRepository, UpdateAccessTokenRepository, DeleteAccountRepository, UpdateAccountRepository, AllAccountRepository, LoadAccountRepository {
   async signupAccount(data: SignUpAccountRepository.Data): Promise<SignUpAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(data)
@@ -17,7 +17,7 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     }, {
       projection: {
         _id: 1,
-        name: 1,
+        // name: 1,
         email: 1,
         password: 1
       }
@@ -40,7 +40,7 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
   async updateAccessToken(id: string, token: string): Promise<void> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     // await accountCollection.updateOne({
-    const account = await accountCollection.updateOne({
+    await accountCollection.updateOne({
       _id: id
     }, {
       $set: {
@@ -73,11 +73,32 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     return account.ops[0]
   } 
 
-  async all(): Promise<AllAccountRepository.Result> {
+  async loadAll(): Promise<AllAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
-    const account = await accountCollection.find()
-    // console.log("account: ", account.ops[0])
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account.ops[0]))
-    return account.ops[0]
-  } 
+    const accounts = await accountCollection.find(
+    ).toArray()
+    // console.log("accounts: ", accounts)
+    // console.log("MongoHelper.map(accounts): ", MongoHelper.map(accounts))
+    // console.log("MongoHelper.mapCollection(accounts): ", MongoHelper.mapCollection(accounts))
+    return MongoHelper.mapCollection(accounts)
+    // return accounts
+  }
+
+  async loadByData(email: string): Promise<LoadAccountByEmailRepository.Result> {
+    const accountCollection = await MongoHelper.getCollection('accounts')
+    const account = await accountCollection.findOne({
+      email
+    }
+      // , {
+      //   projection: {
+      //   id: 1,
+      //   email: 1,
+      //   password: 1
+      // }
+      // }
+    )
+    // console.log("account: ", account)
+    console.log("MongoHelper.map(account): ", MongoHelper.map(account))
+    return account && MongoHelper.map(account)
+  }
 }
