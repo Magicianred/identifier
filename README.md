@@ -1,4 +1,4 @@
-<h1 align="center" color"red">IDENTIFIER</h1>
+<h1 align="center" color="red">IDENTIFIER</h1>
 
 <p align="center">
   <a href="#-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -35,9 +35,8 @@
 </div>
 
 <h2><a id="user-content--project" class="anchor" aria-hidden="true" href="#-project"></a> PROJECT</h2>
-<span>  Identifier is a backend application that has CRUD for users. </a> <span><br/>
-<span>  Its purpose is to read, create, update, delete user accounts in mongoDB and return a token and the user name when executing signin. <span><br/>
-<span>  This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p><br/>
+<span color="red">  Identifier is a backend application that has CRUD users, has middleware for admin where this account can see all users, only one user and only logged-in users can delete their own accounts or update their own data. </a> <span><br/>
+<span color="red">  This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p><br/>
 
 <h2><a id="user-content--requirements" class="anchor" aria-hidden="true" href="#-requirements"></a> REQUIREMENTS</h2>
 <p> MongoDB </p><br/><br/>
