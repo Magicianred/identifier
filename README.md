@@ -123,16 +123,16 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
   <p> cd identifier/backend </p>
 
   <h4> Install the necessary packages for the project. </h4>
-  <p> npm install or yarn </p><br/>
+  <p> npm install or yarn </p>
 
   <h4> Start the mongoDB(on linux). </h4>
-  <p>  sudo systemctl start mongod </p><br/>
+  <p>  sudo systemctl start mongod </p>
 
   <h4> Build the the server. </h4>
-  <p>  yarn build </p><br/>
+  <p>  yarn build </p>
 
   <h4> Turn on the server, which is at 127.0.0.1:7777. </h4>
-  <p> yarn start </p><br/>
+  <p> yarn start </p>
 </div><hr/><br/>
 
 <div align="center">
@@ -158,7 +158,7 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
 
 <div align="center">
   <h3><a id="user-content--license" class="anchor" aria-hidden="true" href="#-license">LICENSE</a></h3>
-  <p>This project is under the MIT license. See the <a href="https://github.com/th14g0d3v/identifier/blob/master/LICENSE"> LICENSE</a> file for more details.</p><br/>
+  <p>This project is under the MIT license. See the <a href="https://github.com/th14g0d3v/identifier/blob/main/LICENSE">LICENSE</a> file for more details.</p><br/>
 </div><hr/><br/>
 
 <div align="center">
