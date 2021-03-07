@@ -68,93 +68,100 @@ console.log('jwtDecode.header: ', jwtDecode.header)
 console.log('jwtDecode.payload: ', jwtDecode.payload)
 console.log('jwtDecode.signature: ', jwtDecode.signature) -->
 
-<h1 align="center" color="red">IDENTIFIER</h1>
+<h1 align="center" color="red">IDENTIFIER</h1><br/>
 
-<p align="center">
+<div align="center">
+  <h3><a id="user-content--summary" class="anchor" aria-hidden="true" href="#-summary">SUMMARY</a></h3>
+  <a href="#-Summary">Summary</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Tecnologies">Tecnologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-Requirements">Requirements</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Usage">Usage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Playground">Playground</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Challenge">Challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-License">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Credits">Credits</a>
-</p><br/>
+</div><hr/><br/>
 
 <div align="center">
-  
+  <h3><a id="user-content--tecnologies" class="anchor" aria-hidden="true" href="#-tecnologies">TECNOLOGIES</a></h3>
   <a href="https://nodejs.org/en/" rel="nofollow">
-    <img alt="NodeJs" src="https://img.shields.io/badge/Node-JS-red">
+    <img alt="NodeJs" src="https://img.shields.io/badge/Node-purple">&nbsp;&nbsp;&nbsp;
   </a>
 
-  <a href="#" rel="nofollow">
-    <img alt="ApolloServer" src="https://img.shields.io/badge/Apollo-SERVER-red">
-  </a>
-                                                                      
-  <a href="#" rel="nofollow">
-    <img alt="GraphQl" src="https://img.shields.io/badge/Graph-QL-red">
+  <a href="https://www.apollographql.com/docs/apollo-server/" rel="nofollow">
+    <img alt="ApolloServer" src="https://img.shields.io/badge/ApolloServer-purple">&nbsp;&nbsp;&nbsp;
   </a>
                                                                       
-  <a href="#" rel="nofollow">
-    <img alt="MongoDB" src="https://img.shields.io/badge/Mongo-DB-red">
+  <a href="https://graphql.org/" rel="nofollow">
+    <img alt="GraphQl" src="https://img.shields.io/badge/GraphQl-purple">&nbsp;&nbsp;&nbsp;
+  </a>
+                                                                      
+  <a href="https://www.mongodb.com/3" rel="nofollow">
+    <img alt="MongoDb" src="https://img.shields.io/badge/MongoDb-purple">&nbsp;&nbsp;&nbsp;
   </a>
 
-  <a href="#" rel="nofollow">
-    <img alt="Typescript" src="https://img.shields.io/badge/Typescript-TS-red">
-  </a>
-                                                                     
-</div>
+  <a href="https://www.typescriptlang.org/" rel="nofollow">
+    <img alt="Typescript" src="https://img.shields.io/badge/Typescript-purple">&nbsp;&nbsp;&nbsp;
+  </a>                                                          
+</div><hr/><br/>
 
-<h2><a id="user-content--project" class="anchor" aria-hidden="true" href="#-project"></a> PROJECT</h2>
-<span color="red">  Identifier is a backend application that has CRUD users, has middleware for admin where this account can see all users, only one user and only logged-in users can delete their own accounts or update their own data. </a> <span><br/>
-<span color="red">  This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p><br/>
+<div align="center">
+  <h3><a id="user-content--project" class="anchor" aria-hidden="true" href="#-project">PROJECT</a></h3>
+  <span color="red">  Identifier is a backend application that has CRUD users, has middleware for admin where this account can see all users, only one user and only logged-in users can delete their own accounts or update their own data. </a> <span><br/>
+  <span color="red">  This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p>
+</div><hr/><br/>
 
-<h2><a id="user-content--requirements" class="anchor" aria-hidden="true" href="#-requirements"></a> REQUIREMENTS</h2>
-<p> MongoDB </p><br/><br/>
+<div align="center">
+  <h3><a id="user-content--usage" class="anchor" aria-hidden="true" href="#-usage">USAGE</a></h3>
 
-<h2><a id="user-content--usage" class="anchor" aria-hidden="true" href="#-usage"></a> USAGE</h2>
+  <h4>Install the MongoDB</h4>
+  <p>MongoDB</p>
 
-<h4> Install the MongoDB. </h4>
-<a href="https://docs.mongodb.com/manual/installation/">MongoDB</a><br/><br/>
+  <h4> Clone the repository to the desired folder. </h4>
+  <p> git clone https://github.com/th14g0d3v/identifier.git </p>
+  <h4> Navigate to the repository folder. </h4>
+  <p> cd identifier/backend </p>
 
-<h4> Clone the repository to the desired folder. </h4>
-<p> git clone https://github.com/th14g0d3v/identifier.git </p><br/>
-<h4> Navigate to the repository folder. </h4>
-<p> cd identifier </p><br/>
+  <h4> Install the necessary packages for the project. </h4>
+  <p> npm install or yarn </p><br/>
 
-<h4> Install the necessary packages for the project. </h4>
-<p> npm install or yarn </p><br/>
+  <h4> Start the mongoDB(on linux). </h4>
+  <p>  sudo systemctl start mongod </p><br/>
 
-<h4> Start the mongoDB(on linux). </h4>
-<p>  sudo systemctl start mongod </p><br/>
+  <h4> Build the the server. </h4>
+  <p>  yarn build </p><br/>
 
-<h4> Build the the server. </h4>
-<p>  yarn build </p><br/>
+  <h4> Turn on the server, which is at 127.0.0.1:7777. </h4>
+  <p> yarn start </p><br/>
+</div><hr/><br/>
 
-<h4> Turn on the server, which is at 127.0.0.1:7777. </h4>
-<p> yarn start </p><br/>
+<div align="center">
+  <h3><a id="user-content--playground" class="anchor" aria-hidden="true" href="#-playground">PLAYGROUND</a></h3>
 
-<h2><a id="user-content--playground" class="anchor" aria-hidden="true" href="#-playground"></a> PLAYGROUND</h2>
+  <h4> In Browser </h4>
+  <p>http://localhost:7777/graphql</p>
 
-<h4> In Browser </h4>
-<p>http://localhost:7777/graphql</p>
-
-```javascript
-mutation {
-  signUp (email: "jack@mail.com", password: "jack", passwordConfirmation: "jack") {
-    code
+  ```javascript
+  mutation {
+    signUp (email: "jack@mail.com", password: "jack", passwordConfirmation: "jack") {
+      code
+    }
   }
-}
-```
+  ```
+</div><hr/><br/>
 
-<br/><br/>
+<div align="center">
+  <h3><a id="user-content--challenge" class="anchor" aria-hidden="true" href="#-challenge">CHALLENGE</a></h3>
 
-<h2><a id="user-content--challenge" class="anchor" aria-hidden="true" href="#-challenge"></a> CHALLENGE</h2>
+  - [x] Create an account
+</div><hr/><br/>
 
-- [x] Create an account.
-      <br/><br/>
+<div align="center">
+  <h3><a id="user-content--license" class="anchor" aria-hidden="true" href="#-license">LICENSE</a></h3>
+  <p>This project is under the MIT license. See the <a href="https://github.com/th14g0d3v/identifier/blob/master/LICENSE"> LICENSE</a> file for more details.</p><br/>
+</div><hr/><br/>
 
-<h2><a id="user-content-memo-licença" class="anchor" aria-hidden="true" href="#memo-licença"></a> LICENSE</h2>
-<p>This project is under the MIT license. See the <a href="https://github.com/th14g0d3v/identifier/blob/master/LICENSE"> LICENSE</a> file for more details.</p><br/>
-
-<h2><a id="user-content-memo-credits" class="anchor" aria-hidden="true" href="#memo-credits"></a> CREDITS</h2>
-<p>Made by <a href="https://github.com/th14g0d3v" rel="nofollow"> Thiago Gomes</a>.</p>
+<div align="center">
+  <h3><a id="user-content--credits" class="anchor" aria-hidden="true" href="#-credits">CREDITS</a></h3>
+  <p>Made by <a href="https://github.com/th14g0d3v" rel="nofollow">Thiago Gomes</a></p>
+</div>
