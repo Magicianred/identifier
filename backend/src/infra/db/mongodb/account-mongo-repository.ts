@@ -5,8 +5,6 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
   async signupAccount(data: SignUpAccountRepository.Data): Promise<SignUpAccountRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(data)
-    // console.log("result.ops[0]: ", result.ops[0])
-    // console.log("MongoHelper.map(result.ops[0]): ", MongoHelper.map(result.ops[0]))
     return result && MongoHelper.map(result.ops[0])
   }
 
@@ -22,8 +20,6 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
         password: 1
       }
     })
-    // console.log("account: ", account)
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account))
     return account && MongoHelper.map(account)
   }
 
@@ -32,30 +28,23 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     const account = await accountCollection.findOne({
       email
     })
-    // console.log("account: ", account)
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account))
     return account !== null
   }
 
-  async updateAccessToken(id: string, token: string): Promise<void> {
+  async updateAccessToken(email: string, token: string): Promise<void> {
     const accountCollection = await MongoHelper.getCollection('accounts')
-    // await accountCollection.updateOne({
     await accountCollection.updateOne({
-      _id: id
+      email: email
     }, {
       $set: {
         accessToken: token
       }
     })
-    // console.log("account: ", account)
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account))
   }
 
   async deleteByEmail(data: DeleteAccountRepository.Params): Promise<void> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     await accountCollection.deleteOne(data)
-    // console.log("account: ", account)
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account))
   }
 
   async updateByEmail(data: UpdateAccountRepository.Params): Promise<UpdateAccountRepository.Result> {
@@ -68,8 +57,6 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
         password: data.newPassword
       }
     })
-    // console.log("account: ", account.ops[0])
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account.ops[0]))
     return account.ops[0]
   } 
 
@@ -77,11 +64,7 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     const accountCollection = await MongoHelper.getCollection('accounts')
     const accounts = await accountCollection.find(
     ).toArray()
-    // console.log("accounts: ", accounts)
-    // console.log("MongoHelper.map(accounts): ", MongoHelper.map(accounts))
-    // console.log("MongoHelper.mapCollection(accounts): ", MongoHelper.mapCollection(accounts))
     return MongoHelper.mapCollection(accounts)
-    // return accounts
   }
 
   async loadByData(email: string): Promise<LoadAccountByEmailRepository.Result> {
@@ -89,8 +72,6 @@ export class AccountMongoRepository implements SignUpAccountRepository, LoadAcco
     const account = await accountCollection.findOne({
       email
     })
-    // console.log("account: ", account)
-    // console.log("MongoHelper.map(account): ", MongoHelper.map(account))
     return account && MongoHelper.map(account)
   }
 

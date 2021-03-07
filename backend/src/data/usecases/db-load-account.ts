@@ -10,6 +10,5 @@ export class DbLoadAccount implements LoadAccount {
       return account
     }
     return null
-    // return account
   }
 }

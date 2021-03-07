@@ -1,3 +1,73 @@
+<!-- PROJECT IDENTIFIER
+
+Conceito
+    Identifier é uma aplicação fullstack frontend, backend e mobile que possui CRUD para usuários e alguns dados de plantas, possui uma inteligência artificial pre-treinada para identificar plantas por meio de fotos que ativa um chatbot interativo com informações sobre a planta pesquisada.
+
+Uso
+    Clientes front e mobile se cadastram e executam login, fazem atualização da conta ou sua exclusão.
+    Clientes cadastrados podem executar consultas a respeito das plantas cadastradas.
+    Backend recebe requisições de CRUD de usuários e devolve aos clientes.
+    Backend recebe requisições de consultas de plantas e devolve aos clientes.
+    Backend ao receber imagens executa a inteligência artificial que ao identificar a planta passa informações para o chatbot que passa um roll de informações a respeito da planta.
+
+Tecnoçogias
+    A aplicação segue principios do DDD, Arquitetura Limpa e Padrões de Projeto.
+    Algumas tecnologias do projeto são:
+        Node,
+        Argon2,
+        Typescript,
+        MongoDB: Executará e guardará apenas informações de CRUD do usuário.
+        PostgreSQL: Executará e guardará apenas informações de plantas. 
+        Watson Assistent Chatbot: Informará os clientes com uma lista de informações sobre as plantas pesquisadas.
+        TensorFlow: Analisará as fotos e comunicará o chatbot a planta pesquisada.
+
+
+
+IDENTIFIER IMPLEMENTATIONS
+
+Backend
+
+Number      Feature         JOBS
+1           Login           deverá enviar o token para o navegador
+2           All/Load        deverá retorna id, email, password, accessToken.
+3           Middleware      implementar para usuários admin e users.
+4           LoadAccount     verificar existe necessidade dessa feature do jeito que está ou se pode usar os recursos do login.
+5           Singleton       implementar no infra layer com PostgreSQL
+6           Postgres        popular o db com informações sobre as plantas.
+7           All/Load        deverá retorna todas as informações das plantas do db postgres.
+
+Frontend
+Number      Feature         JOBS
+1           AI              implementar AI pre-treinada para recochecer plantas e retornar ao chatbot a planta identificada.
+2           Chatbot         implementar o recebimento da planta informada pela AI e retorna todas as informações ao usuário.
+
+
+
+INFORMATIONS ABOUT IDENTIFIER
+
+In package.json:
+"_moduleAliases": {
+    "@": "src"      // Funciona para typescript
+    "@": "dist"     // Funciona para javascript
+}
+
+Como o jwt funciona
+const jwtSign = jwt.sign({ foo: 'bar' }, 'fff', { expiresIn: '1h' })
+console.log(jwtSign)
+
+const jwtVerify = jwt.verify(jwtSign, 'fff')
+console.log('jwtVerify: ', jwtVerify)
+
+// função segura
+const jwtDecoded = jwt.verify(jwtSign, 'fff');
+console.log('jwtDecoded: ', jwtDecoded)
+
+// função insegura, pois, não verifica o signature do token
+const jwtDecode = jwt.decode(jwtSign, { complete: true })
+console.log('jwtDecode.header: ', jwtDecode.header)
+console.log('jwtDecode.payload: ', jwtDecode.payload)
+console.log('jwtDecode.signature: ', jwtDecode.signature) -->
+
 <h1 align="center" color="red">IDENTIFIER</h1>
 
 <p align="center">
