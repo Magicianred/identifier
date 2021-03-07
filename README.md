@@ -155,8 +155,49 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
 
   ```javascript
   mutation {
-    signUp (email: "jack@mail.com", password: "jack", passwordConfirmation: "jack") {
-      code
+    signUp(
+      email: "jack@mail.com"
+      password: "jack"
+      passwordConfirmation: "jack"
+    ) {
+      email
+    }
+  }
+
+  query {
+    login(email: "jack@mail.com", password: "jack") {
+      accessToken
+      email
+    }
+  }
+
+  mutation {
+    delete(email: "jack@mail.com") {
+      result
+    }
+  }
+
+  mutation {
+    update(
+      currentEmail: "jack@mail.com"
+      newEmail: "sparrow@mail.com"
+      newPassword: "sparrow"
+    ) {
+      email
+    }
+  }
+
+  query {
+    all {
+      email
+      password
+    }
+  }
+
+  query {
+    load(email: "jack@mail.com") {
+      email
+      password
     }
   }
   ```
@@ -166,6 +207,11 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
   <h3><a id="user-content--challenge" class="anchor" aria-hidden="true" href="#-challenge">CHALLENGE</a></h3>
 
   - [x] Create an account
+  - [x] Log in to an account
+  - [x] Delete an account just logged in
+  - [x] Update an account just logged in
+  - [x] View all accounts just logged in
+  - [x] View an account just logged in
 </div><hr/><br/>
 
 <div align="center">
