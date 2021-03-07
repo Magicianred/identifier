@@ -89,7 +89,11 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
   </a>
 
   <a href="https://www.apollographql.com/docs/apollo-server/" rel="nofollow">
-    <img alt="ApolloServer" src="https://img.shields.io/badge/ApolloServer-purple">&nbsp;&nbsp;&nbsp;
+    <img alt="ApolloServer" src="https://img.shields.io/badge/ApolloServerExpress-purple">&nbsp;&nbsp;&nbsp;
+  </a>
+                                                                      
+  <a href="https://expressjs.com/" rel="nofollow">
+    <img alt="Express" src="https://img.shields.io/badge/Express-purple">&nbsp;&nbsp;&nbsp;
   </a>
                                                                       
   <a href="https://graphql.org/" rel="nofollow">
@@ -102,7 +106,15 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
 
   <a href="https://www.typescriptlang.org/" rel="nofollow">
     <img alt="Typescript" src="https://img.shields.io/badge/Typescript-purple">&nbsp;&nbsp;&nbsp;
-  </a>                                                          
+  </a>
+
+  <a href="https://jwt.io/" rel="nofollow">
+    <img alt="Jsonwebtoken" src="https://img.shields.io/badge/jsonwebtoken-purple">&nbsp;&nbsp;&nbsp;
+  </a>
+
+  <a href="https://github.com/p-h-c/phc-winner-argon2" rel="nofollow">
+    <img alt="Argon2" src="https://img.shields.io/badge/argon2-purple">&nbsp;&nbsp;&nbsp;
+  </a>                                    
 </div><hr/><br/>
 
 <div align="center">
