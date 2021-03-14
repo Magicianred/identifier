@@ -1,4 +1,5 @@
-<!-- PROJECT IDENTIFIER
+<!--
+PROJECT IDENTIFIER
 
 Conceito
     Identifier é uma aplicação fullstack frontend, backend e mobile que possui CRUD para usuários e alguns dados de plantas, possui uma inteligência artificial pre-treinada para identificar plantas por meio de fotos que ativa um chatbot interativo com informações sobre a planta pesquisada.
@@ -17,7 +18,7 @@ Tecnoçogias
         Argon2,
         Typescript,
         MongoDB: Executará e guardará apenas informações de CRUD do usuário.
-        PostgreSQL: Executará e guardará apenas informações de plantas. 
+        PostgreSQL: Executará e guardará apenas informações de plantas.
         Watson Assistent Chatbot: Informará os clientes com uma lista de informações sobre as plantas pesquisadas.
         TensorFlow: Analisará as fotos e comunicará o chatbot a planta pesquisada.
 
@@ -32,9 +33,11 @@ Number      Feature         JOBS
 2           All/Load        deverá retorna id, email, password, accessToken.
 3           Middleware      implementar para usuários admin e users.
 4           LoadAccount     verificar existe necessidade dessa feature do jeito que está ou se pode usar os recursos do login.
-5           Singleton       implementar no infra layer com PostgreSQL
+5           Singleton       na infra layer com PostgreSQL
 6           Postgres        popular o db com informações sobre as plantas.
 7           All/Load        deverá retorna todas as informações das plantas do db postgres.
+8           Tests           cobertura completa da aplicação.
+9           Express         torna-se uma API REST.
 
 Frontend
 Number      Feature         JOBS
@@ -153,65 +156,66 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
   <h4> In Browser </h4>
   <p>http://localhost:7777/graphql</p>
 
-  ```javascript
-  mutation {
-    signUp(
-      email: "jack@mail.com"
-      password: "jack"
-      passwordConfirmation: "jack"
-    ) {
-      email
-    }
+```javascript
+mutation {
+  signUp(
+    email: "jack@mail.com"
+    password: "jack"
+    passwordConfirmation: "jack"
+  ) {
+    email
   }
+}
 
-  query {
-    login(email: "jack@mail.com", password: "jack") {
-      accessToken
-      email
-    }
+query {
+  login(email: "jack@mail.com", password: "jack") {
+    accessToken
+    email
   }
+}
 
-  mutation {
-    delete(email: "jack@mail.com") {
-      result
-    }
+mutation {
+  delete(email: "jack@mail.com") {
+    result
   }
+}
 
-  mutation {
-    update(
-      currentEmail: "jack@mail.com"
-      newEmail: "sparrow@mail.com"
-      newPassword: "sparrow"
-    ) {
-      email
-    }
+mutation {
+  update(
+    currentEmail: "jack@mail.com"
+    newEmail: "sparrow@mail.com"
+    newPassword: "sparrow"
+  ) {
+    email
   }
+}
 
-  query {
-    all {
-      email
-      password
-    }
+query {
+  all {
+    email
+    password
   }
+}
 
-  query {
-    load(email: "jack@mail.com") {
-      email
-      password
-    }
+query {
+  load(email: "jack@mail.com") {
+    email
+    password
   }
-  ```
+}
+```
+
 </div><hr/><br/>
 
 <div align="center">
   <h3><a id="user-content--challenge" class="anchor" aria-hidden="true" href="#-challenge">CHALLENGE</a></h3>
 
-  - [x] Create an account
-  - [x] Log in to an account
-  - [x] Delete an account just logged in
-  - [x] Update an account just logged in
-  - [x] View all accounts just logged in
-  - [x] View an account just logged in
+- [x] Create an account
+- [x] Log in to an account
+- [x] Delete an account just logged in
+- [x] Update an account just logged in
+- [x] View all accounts just logged in
+- [x] View an account just logged in
 </div><hr/><br/>
 
 <div align="center">
