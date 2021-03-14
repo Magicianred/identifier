@@ -71,10 +71,15 @@ console.log('jwtDecode.header: ', jwtDecode.header)
 console.log('jwtDecode.payload: ', jwtDecode.payload)
 console.log('jwtDecode.signature: ', jwtDecode.signature) -->
 
-<h1 align="center" color="red">IDENTIFIER</h1><br/>
+<div align="center">
+  <h1><a id="user-content--identifier" class="anchor" aria-hidden="true" href="#-identifier">IDENTIFIER</h1><br/>
+
+  <p><a href="#-IDENTIFIER"><img src="https://github.com/th14g0d3v/identifier/raw/main/public/eyes.png" alt="alt text" title="image" style="max-width:100%;"></a></p>
+</div><hr/><br/>
 
 <div align="center">
   <h3><a id="user-content--summary" class="anchor" aria-hidden="true" href="#-summary">SUMMARY</a></h3>
+  <a href="#-Identifier">Identifier</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Summary">Summary</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Tecnologies">Tecnologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -111,6 +116,10 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
     <img alt="Typescript" src="https://img.shields.io/badge/Typescript-purple">&nbsp;&nbsp;&nbsp;
   </a>
 
+  <a href="https://jestjs.io/" rel="nofollow">
+    <img alt="Jest" src="https://img.shields.io/badge/Jest-purple">&nbsp;&nbsp;&nbsp;
+  </a>
+
   <a href="https://jwt.io/" rel="nofollow">
     <img alt="Jsonwebtoken" src="https://img.shields.io/badge/jsonwebtoken-purple">&nbsp;&nbsp;&nbsp;
   </a>
@@ -123,14 +132,14 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
 <div align="center">
   <h3><a id="user-content--project" class="anchor" aria-hidden="true" href="#-project">PROJECT</a></h3>
   <span color="red">  Identifier is a backend application that has CRUD users, has middleware for admin where this account can see all users, only one user and only logged-in users can delete their own accounts or update their own data. </a> <span><br/>
-  <span color="red">  This structure was created only to help those who are starting with studies in domain driven design, clean architecture and design pattern. </p>
+  <span color="red">  This structure was created only to help those who are starting with studies in test driven development, domain driven design, clean architecture and design pattern. </p>
 </div><hr/><br/>
 
 <div align="center">
   <h3><a id="user-content--usage" class="anchor" aria-hidden="true" href="#-usage">USAGE</a></h3>
 
   <h4>Install the MongoDB</h4>
-  <p>MongoDB</p>
+  <p><a href="https://www.mongodb.com/try/download/community" rel="nofollow">MongoDB</a></p>
 
   <h4> Clone the repository to the desired folder. </h4>
   <p> git clone https://github.com/th14g0d3v/identifier.git </p>
@@ -143,11 +152,11 @@ console.log('jwtDecode.signature: ', jwtDecode.signature) -->
   <h4> Start the mongoDB(on linux). </h4>
   <p>  sudo systemctl start mongod </p>
 
-  <h4> Build the the server. </h4>
-  <p>  yarn build </p>
+  <h4> Test the the server. </h4>
+  <p>  yarn test </p>
 
   <h4> Turn on the server, which is at 127.0.0.1:7777. </h4>
-  <p> yarn start </p>
+  <p> yarn tsdev </p>
 </div><hr/><br/>
 
 <div align="center">
